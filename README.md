@@ -3,13 +3,13 @@ Pipeline for extracting text and keywords from a given Semantic Scholar search q
 
 
 ## Run whole pipeline:
-```python parse_results.py --all --query "emotion speech" --keywords "valence,arousal"```
+```python parse_results_reorg.py --all --query "emotion speech" --keywords "valence,arousal"```
 
 ## Run step-by-step
-```python parse_results.py --fetch --query "emotion speech"
-python parse_results.py --extract-dois
-python parse_results.py --resolve-urls
-python parse_results.py --download
-python parse_results.py --extract-text
-python parse_results.py --analyze --keywords "valence,arousal"
-python parse_results.py --write-csv --keywords "valence,arousal"```
+```python parse_results_reorg.py --fetch --query "emotion speech"
+python parse_results_reorg.py --extract-dois
+python parse_results_reorg.py --resolve-urls
+python parse_results_reorg.py --download
+python parse_results_reorg.py --extract-text
+python parse_results_reorg.py --analyze --keywords "valence,arousal"
+python parse_results_reorg.py --write-csv --keywords "valence,arousal"```
