@@ -112,7 +112,6 @@ def download_pdfs(in_file):
 def extract_texts(pdf_dir="papers", text_dir="papers/pdf_texts"):
     # was having issues with adding poppler to my PATH - specify the path to pdftotext.exe for workaround
     # PDFTOTEXT_EXE = r"your-path-here"
-    PDFTOTEXT_EXE = r"C:\Poppler\poppler-24.08.0\Library\bin\pdftotext.exe"
     os.makedirs(text_dir, exist_ok=True)
     error_log_path = "extract_texts.err"
     for filename in tqdm(os.listdir(pdf_dir)):
@@ -135,8 +134,8 @@ def extract_texts(pdf_dir="papers", text_dir="papers/pdf_texts"):
                 print(f"[UNEXPECTED ERROR] {filename}: {e}")
                 with open(error_log_path, "a", encoding="utf-8") as err_log:
                     err_log.write(f"{filename}\n")
-            # subprocess.run(["pdftotext", pdf_path, txt_path])
-            subprocess.run([PDFTOTEXT_EXE, pdf_path, txt_path], check=True)
+            subprocess.run(["pdftotext", pdf_path, txt_path])
+            # subprocess.run([PDFTOTEXT_EXE, pdf_path, txt_path], check=True)
         else:
             print(f"Skipping file: {filename}")
 
